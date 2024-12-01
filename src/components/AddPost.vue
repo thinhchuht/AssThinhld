@@ -64,11 +64,9 @@
   import { InitPosts } from "@/resources/InitPosts";
   import { useRoute } from "vue-router";
   
-  // Lấy thông tin từ route
   const route = useRoute();
   const author = route.query.author;
   
-  // Tạo đối tượng newPost bằng reactive
   const newPost = reactive({
     id: null,
     title: "",
@@ -83,15 +81,12 @@
     isShow: false,
   });
   
-  // Hàm thêm bài viết mới
   const addNewPost = () => {
-    // Gán author vào post
     newPost.author = author;
   
     // Tạo id mới cho bài viết
     newPost.id = InitPosts.length + 1; 
   
-    // Thêm bài viết vào InitPosts
     InitPosts.push({ ...newPost });
   
     // Reset form sau khi thêm
@@ -105,8 +100,6 @@
       }
     });
   
-    // In ra InitPosts để kiểm tra
-    console.log(InitPosts);
   };
   </script>
   
